@@ -8,9 +8,9 @@ import { map } from "rxjs";
 export class ApiService {
   constructor(private http:HttpClient) { }
 
-  getPokemons(url:any){
+  getPokemons(url:any,params:any={}){
     url=url?url:getPokemonsApi;
-    return this.http.get(url)
+    return this.http.get(url,{params:params})
   }
   /**
    * @param url 
@@ -19,6 +19,13 @@ export class ApiService {
   getPokemonDetail(url:string){
     return this.http.get(url)
     .pipe(map(((res:any)=>{
+      console.log(res)
+      const sprites:any=[]
+      Object.keys(res.sprites).forEach((key:any)=>{
+        if(res.sprites[key] && typeof res.sprites[key] =="string"){
+          sprites.push({name:key,imgUrl:res.sprites[key]});
+        }
+      })
       const moves=res.moves.map((el:any) => {
         return {
           name:el.move.name.split("-").map((e:string)=>e[0].toUpperCase() + e.substr(1)).join(" "),
@@ -48,6 +55,7 @@ export class ApiService {
         moves,
         stats,
         abilities,
+        sprites
       }
     })))
   }
@@ -59,6 +67,7 @@ export class ApiService {
   getPokemonAbilityDetail(url:string){
     return this.http.get(url)
     .pipe(map((res:any)=>{
+      console.log(res)
       let effect=res.effect_entries.find(((e:any)=>e.language.name=='en'));
       effect=effect?effect.effect:null;
       let generation=res.generation.name;

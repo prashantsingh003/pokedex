@@ -39,6 +39,7 @@ export class DetailsPokemonComponent implements OnInit,OnDestroy{
     this.subs.push(
       this.apiService.getPokemonDetail("https://pokeapi.co/api/v2/pokemon/"+nameId)
       .subscribe((res:any)=>{
+        // console.log(res)
         this.name=res.name;
         this.data=res;
         this.sprites=res.sprites;
