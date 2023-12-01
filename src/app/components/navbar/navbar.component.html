@@ -1,1 +1,23 @@
-<p>navbar works!</p>
+<nav class="bg-gray-800 p-4">
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <a routerLink="home" class="text-white text-lg font-bold">Pokédex</a>
+
+    <!-- Nav Links -->
+    <div class="flex items-center space-x-4">
+      <a routerLink="/home" class="text-white">Home</a>
+      <a routerLink="/dashboard" class="text-white">Dashboard</a>
+      <a [routerLink]="['/pokemon',5]" class="text-white">Pokemon</a>
+    </div>
+
+    <!-- Search Bar -->
+    <!-- <div class="flex items-center">
+      <input
+        type="text"
+        placeholder="Search"
+        class="px-2 py-1 mr-2 border border-gray-700 rounded"
+      />
+      <button class="text-white">🔍</button>
+    </div> -->
+  </div>
+</nav>

@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-
+import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-
+  test:boolean=true;
+  toggle(){
+    this.test=!this.test
+    console.log(this.test)
+  }
 }

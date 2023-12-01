@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<div class="flex flex-wrap m-4">
+	<!-- Flex Box with Hover Elevation -->
+	@for (pokemon of pokemons; track pokemon.name){
+		<a [routerLink]="['/pokemon',pokemon.name]" class="m-4 p-6 bg-white rounded-md shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+			<p class="text-gray-800">{{pokemon.name}}</p>
+		</a>
+	}
+</div>
+<!-- Pagination -->
+<div class="w-full flex justify-center mt-8">
+	<ul class="flex space-x-2">
+		<li 
+			class="px-3 py-2 rounded-md" 
+			(click)="prevPage()" 
+			[class]="getPrev && !loading?'bg-blue-500 text-white':'bg-gray-300 text-gray-700'"
+		>Prev</li>
+		<li 
+			class="px-3 py-2 rounded-md" 
+			(click)="nextPage()" 
+			[class]="getNext && !loading?'bg-blue-500 text-white':'bg-gray-300 text-gray-700'"
+		>Next</li>
+	</ul>
+</div>
