@@ -7,7 +7,10 @@ import { DetailsPokemonComponent } from './components/details-pokemon/details-po
 export const routes: Routes = [
 	{path: 'home', component: HomeComponent},
 	{path: 'dashboard', component: DashboardComponent},
-	{path: 'pokemon/:nameID', component: DetailsPokemonComponent},
+	{
+		path: 'pokemon/:nameID', 
+		component: DetailsPokemonComponent
+	},
 	// {path: 'home', component: HomeComponent},
 	
 	{ path: '**', component: NotFoundComponent }
