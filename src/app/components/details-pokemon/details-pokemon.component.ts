@@ -43,6 +43,7 @@ export class DetailsPokemonComponent implements OnInit,OnDestroy{
         this.name=res.name;
         this.data=res;
         this.sprites=res.sprites;
+        this.loading=false
       })
     )
   }

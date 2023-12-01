@@ -48,7 +48,7 @@ export class ApiService {
       return{
         id:res.id,
         name:res.name,
-        height:parseInt(String(res.height/10)), //decimeters to cm
+        height:res.height*10, //decimeters to cm
         weight:parseInt(String(res.weight/10)), // hectograms to kg
         species:res.species.name,
         // base_experience:res.base_experience,

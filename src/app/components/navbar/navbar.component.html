@@ -1,14 +1,15 @@
-<nav class="bg-gray-800 p-4">
+<nav class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-100% p-4 text-xl">
   <div class="flex items-center justify-between">
     <!-- Logo -->
-    <a routerLink="home" class="text-white text-lg font-bold">Pokédex</a>
+    <a routerLink="home" class="font-xl text-white text-lg font-bold rounded-full px-2.5 border-2 border-white">Pokédex</a>
 
     <!-- Nav Links -->
     <div class="flex items-center space-x-4">
-      <a routerLink="/home" class="text-white">Home</a>
-      <a routerLink="/dashboard" class="text-white">Dashboard</a>
-      <a [routerLink]="['/pokemon',5]" class="text-white">Pokemon</a>
+      <!-- <a routerLink="/home" class="text-white" [routerLinkActive]="'underline'">Home</a> -->
+      <a routerLink="/dashboard" class="text-white" [routerLinkActive]="'underline'">Polemons List</a>
+      <a (click)="randomPokemon()" [routerLink]="['/pokemon']" class="text-white" [routerLinkActive]="'underline'">Random Pokemon</a>
     </div>
+    <div></div>
 
     <!-- Search Bar -->
     <!-- <div class="flex items-center">
